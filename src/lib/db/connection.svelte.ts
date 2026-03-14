@@ -31,7 +31,9 @@ const IDB_KEY = 'last-db-handle';
 const IDB_DB_STORE = 'db-storage';
 const IDB_META_KEY = '__meta__';
 
-interface FSAccessHandle extends FileSystemFileHandle {
+interface FSAccessHandle {
+	name: string;
+	getFile(): Promise<File>;
 	queryPermission(opts: { mode: string }): Promise<string>;
 	requestPermission(opts: { mode: string }): Promise<string>;
 }
